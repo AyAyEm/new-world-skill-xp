@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.981c2d8b.chunk.css",
+    "main.js": "/static/js/main.1315a1e7.chunk.js",
+    "main.js.map": "/static/js/main.1315a1e7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5b4cecab.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5b4cecab.js.map",
+    "static/js/2.27addc02.chunk.js": "/static/js/2.27addc02.chunk.js",
+    "static/js/2.27addc02.chunk.js.map": "/static/js/2.27addc02.chunk.js.map",
+    "static/js/3.b2aa0cb5.chunk.js": "/static/js/3.b2aa0cb5.chunk.js",
+    "static/js/3.b2aa0cb5.chunk.js.map": "/static/js/3.b2aa0cb5.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.981c2d8b.chunk.css.map": "/static/css/main.981c2d8b.chunk.css.map",
+    "static/js/2.27addc02.chunk.js.LICENSE.txt": "/static/js/2.27addc02.chunk.js.LICENSE.txt",
+    "static/media/arcana.401d2c91.png": "/static/media/arcana.401d2c91.png",
+    "static/media/armoring.4dc39f8c.png": "/static/media/armoring.4dc39f8c.png",
+    "static/media/cooking.a8d31274.png": "/static/media/cooking.a8d31274.png",
+    "static/media/engineering.53dce862.png": "/static/media/engineering.53dce862.png",
+    "static/media/jewelcrafting.5ac3dec9.png": "/static/media/jewelcrafting.5ac3dec9.png",
+    "static/media/weaponsmithing.977472ca.png": "/static/media/weaponsmithing.977472ca.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5b4cecab.js",
+    "static/js/2.27addc02.chunk.js",
+    "static/css/main.981c2d8b.chunk.css",
+    "static/js/main.1315a1e7.chunk.js"
+  ]
+}
