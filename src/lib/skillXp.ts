@@ -31,7 +31,6 @@ export function getTotalXp(toCheckLvl: number, skill: Skill): number {
     previousExp += ap(skillRangeXp[lastRange].start, 49, skillRangeXp[lastRange].difference);
   }
 
-  console.log(skill, lvl);
   const levelDifference = skillRangeXp[lvlRange].difference;
   const startLelvel = skillRangeXp[lvlRange].start;
   return Array
