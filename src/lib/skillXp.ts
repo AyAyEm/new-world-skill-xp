@@ -1,4 +1,4 @@
-import { ap, toSkillRangeXp } from './utils';
+import { ap, apSumOfNTerms, toSkillRangeXp } from './utils';
 
 import type { Skill, SkillRangeXp } from '../types';
 
@@ -33,9 +33,8 @@ export function getTotalXp(toCheckLvl: number, skill: Skill): number {
 
   const levelDifference = skillRangeXp[lvlRange].difference;
   const startLelvel = skillRangeXp[lvlRange].start;
-  return Array
-    .from({ length: lvl - lvlRange * 50 }, (_, i) => ap(startLelvel, i + 1, levelDifference))
-    .reduce((acc, curr) => acc + curr, 0) + previousExp;
+
+  return apSumOfNTerms(startLelvel, lvl - lvlRange * 50, levelDifference) + previousExp;
 }
 
 export function getXpDifference(a: number, b: number, skill: Skill): number {
