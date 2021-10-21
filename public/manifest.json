@@ -1,6 +1,6 @@
 {
-  "short_name": "Xp skill",
-  "name": "New world xp skill calculator",
+  "short_name": "React App",
+  "name": "Typescript React App template",
   "icons": [
     {
       "src": "favicon.ico",

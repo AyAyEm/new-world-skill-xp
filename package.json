@@ -1,52 +1,79 @@
 {
   "name": "new-world-skill-xp",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://ayayem.github.io/new-world-skill-xp/",
   "author": {
-    "name": "AyAyEm"
+    "name": "AyAyEm",
+    "email": "AyAyEm.dev@gmail.com"
   },
   "license": "MIT",
-  "dependencies": {
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
-    "@mui/icons-material": "^5.0.4",
-    "@mui/material": "^5.0.4",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyAyEm/new-world-skill-xp.git"
   },
+  "bugs": {
+    "url": "https://github.com/AyAyEm/new-world-skill-xp/issues"
+  },
+  "homepage": "https://ayayem.github.io/new-world-skill-xp/",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "yarn run clean-build && webpack --config=configs/webpack/prod.ts",
+    "clean-build": "rimraf build/*",
+    "start": "yarn run start-dev",
+    "start-dev": "webpack serve --config=configs/webpack/dev.ts --port=5000",
+    "start-prod": "cross-env PUBLIC_URL=\"/\" yarn run build && ts-node scripts/express.ts",
+    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --quiet",
+    "lint-fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
+    "@types/copy-webpack-plugin": "^8.0.1",
+    "@types/node": "^16.10.3",
+    "@types/react": "^17.0.27",
+    "@types/react-dev-utils": "^9.0.8",
+    "@types/react-dom": "^17.0.9",
+    "@types/webpack-dev-server": "^4.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "babel-loader": "^8.2.2",
+    "babel-preset-minify": "^0.5.1",
+    "copy-webpack-plugin": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.1",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "1.7.0",
+    "express": "^4.17.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "image-webpack-loader": "^8.0.1",
+    "node-sass": "^6.0.1",
+    "react": "^17.0.2",
+    "react-dev-utils": "^11.0.4",
+    "react-dom": "^17.0.2",
+    "react-refresh": "^0.10.0",
+    "rimraf": "^3.0.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
+    "ts-node": "^10.3.0",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "typescript": "^4.4.3",
+    "webpack": "^5.58.0",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1",
+    "webpack-merge": "^5.8.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@material-ui/core": "^5.0.0-beta.5",
+    "@mui/material": "^5.0.4"
   }
 }

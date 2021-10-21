@@ -1,6 +1,6 @@
-import icons from './icons';
+import skillImgs from '#assets/img/skills';
 
-import './SkillBox.css';
+import './SkillBox.scss';
 
 import type { Skill } from '../../types/skills';
 
@@ -9,10 +9,13 @@ export interface SkillBoxProps {
 }
 
 export function SkillBox(props: SkillBoxProps) {
+  const { skill } = props;
+
   return (
     <div className="SkillBox">
-      <p>{props.skill}</p>
-      <img src={icons[props.skill]} alt={`${props.skill} icon`} />
+      <p>{skill}</p>
+      <img src={skillImgs[skill]} alt={`${skill} icon`} />
     </div>
   );
 }
+export default SkillBox;

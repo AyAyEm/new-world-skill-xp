@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="<%= webpackConfig.output.publicPath %>favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="App for new world skill xp calculation"
+        />
+        <link rel="apple-touch-icon" href="<%= webpackConfig.output.publicPath %>logo192.png" />
+        <link rel="manifest" href="<%= webpackConfig.output.publicPath %>manifest.json" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+        <title>Skill Calculator</title>
+      </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+
+        <!-- Dependencies -->
+        <% if (webpackConfig.mode == 'production') { %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js" integrity="sha512-qlzIeUtTg7eBpmEaS12NZgxz52YYZVF5myj89mjJEesBd/oE9UPsYOX2QAXzvOAZYEvQohKdcY8zKE02ifXDmA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js" integrity="sha512-9jGNr5Piwe8nzLLYTk8QrEMPfjGU0px80GYzKZUxi7lmCfrBjtyCc1V5kkS5vxVwwIB7Qpzc7UxLiQxfAN30dw==" crossorigin="anonymous"></script>
+        <% } else { %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js" integrity="sha512-Vf2xGDzpqUOEIKO+X2rgTLWPY+65++WPwCHkX2nFMu9IcstumPsf/uKKRd5prX3wOu8Q0GBylRpsDB26R6ExOg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.min.js" integrity="sha512-aNBFq6ue8EmNDwVD/l0mWFy3iVZLIxtQaD7fEYBn3HluJer36T1AhJK0THj6MKKfhZrexxWsKX1T16TxLZo6uQ==" crossorigin="anonymous"></script>
+        <% } %>
+    </body>
+</html>
