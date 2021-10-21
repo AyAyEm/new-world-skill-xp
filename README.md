@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+# New World skill calculator
+[![License](https://img.shields.io/github/license/AyAyEm/new-world-skill-xp)](https://github.com/AyAyEm/new-world-skill-xp/blob/main/LICENSE.md)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/AyAyEm/new-world-skill-xp.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AyAyEm/new-world-skill-xp/context:javascript)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/AyAyEm/new-world-skill-xp.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AyAyEm/new-world-skill-xp/alerts/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Usage
+This project is hosted by github pages at https://ayayem.github.io/new-world-skill-xp/
 
-## Available Scripts
+## Development
+### Instalation
+1. Clone/download repo
+2. `yarn install` (or `npm install` for npm)
 
-In the project directory, you can run:
+### Usage
+**Development**
 
-### `yarn start`
+`yarn run start-dev`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Build app continuously
+* App served @ `http://localhost:5000`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Note**: For [fast-refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin) to work, you need to install react-devtools for your browser, as an extension.
 
-### `yarn test`
+**Production**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`yarn run start-prod`
 
-### `yarn build`
+* Build app once to `/build/`
+* App served @ `http://localhost:3000`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**All commands**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Command | Description
+--- | ---
+`yarn start-dev` | Build app continuously (HMR enabled) and serve @ `http://localhost:8080`
+`yarn start-prod` | Build app once (HMR disabled) to `/dist/` and serve @ `http://localhost:3000`
+`yarn build` | Build app to `/dist/`
+`yarn lint` | Run linter
+`yarn lint:fix` | Run linter and fix issues
+`yarn start` | (alias of `yarn run start-dev`)
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Note**: replace `yarn` with `npm` in `package.json` if you use npm.
