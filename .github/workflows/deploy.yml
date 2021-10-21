@@ -27,7 +27,7 @@ jobs:
       - name: Build Code
         run: yarn build
         env:
-          PUBLIC_URL: https://ayayem.github.io/react-typescript-webpack-template/
+          PUBLIC_URL: https://ayayem.github.io/new-world-skill-xp/
       - name: Push new code
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
@@ -47,7 +47,7 @@ jobs:
           rm -rfv out/build/*
           echo -e "\n# Move the generated docs to the newly-checked-out repo, to be committed and pushed"
           rsync -vaI README.md out/
-          rsync -vaI dist/ out
+          rsync -vaI build/ out
           echo -e "\n# Removing TSC incremental file"
           rm -rfv out/**/*.tsbuildinfo
           echo -e "\n# Commit and push"
