@@ -1,10 +1,7 @@
 import { useCallback } from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
-import MuiInput from '@mui/material/Input';
+import { styled, Box, Slider, Input as MuiInput } from '@mui/material';
 
-import './LevelSlider.css';
+import './LevelSlider.scss';
 
 import type { ChangeEvent } from 'react';
 
@@ -14,13 +11,13 @@ const Input = styled(MuiInput)`
   color: white;
 `;
 
-const [min, max] = [0, 200]
+const [min, max] = [0, 200];
 const inputProps = {
   step: 10,
   min,
   max,
   type: 'number',
-  'aria-labelledby': 'input-slider'
+  'aria-labelledby': 'input-slider',
 };
 
 type InputSide = 'left' | 'right';
@@ -37,7 +34,10 @@ export function LevelSlider(props: LevelSliderProps) {
     props.onChange(newValue as [number, number]);
   };
 
-  const handleInputChange = (side: InputSide, event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  function handleInputChange(
+    side: InputSide,
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) {
     const newValue = +event.target.value;
 
     if (!Number.isNaN(newValue)) {
@@ -49,15 +49,15 @@ export function LevelSlider(props: LevelSliderProps) {
     }
   }
 
-  const handleBlur = useCallback((value: [number, number]) => {
-    if (value[0] < min || value[1] < min) {
-      onChange([value[0] < min ? min : value[0], value[1] < min ? min : value[1]]);
-    } else if (value[0] > max || value[1] > max) {
-      onChange([value[0] > max ? max : value[0], value[1] > max ? max : value[1]]);
+  const handleBlur = useCallback((v: [number, number]) => {
+    if (v[0] < min || v[1] < min) {
+      onChange([v[0] < min ? min : v[0], v[1] < min ? min : v[1]]);
+    } else if (v[0] > max || v[1] > max) {
+      onChange([v[0] > max ? max : v[0], v[1] > max ? max : v[1]]);
     }
 
-    if (value[0] > value[1]) {
-      onChange([value[1], value[0]]);
+    if (v[0] > v[1]) {
+      onChange([v[1], v[0]]);
     }
   }, [onChange]);
 
@@ -74,7 +74,7 @@ export function LevelSlider(props: LevelSliderProps) {
         min={0}
         max={200}
         getAriaLabel={() => 'Level range'}
-        value={props.value}
+        value={value}
         onChange={handleSliderChange}
         valueLabelDisplay="auto"
         getAriaValueText={(v) => v.toString()}
@@ -87,5 +87,6 @@ export function LevelSlider(props: LevelSliderProps) {
         inputProps={inputProps}
       />
     </Box>
-  )
+  );
 }
+export default LevelSlider;
