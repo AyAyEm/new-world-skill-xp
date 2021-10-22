@@ -8,9 +8,13 @@
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0px;
+
+    @media screen and (max-width: 600px) {
+        display: none;
+    }
 }
 
 .SkillBox img {
-    height: 125px;
-    width: 125px;
+    height: 60%;
+    width: 60%;
 }

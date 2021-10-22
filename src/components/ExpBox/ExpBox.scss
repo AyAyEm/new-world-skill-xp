@@ -1,0 +1,14 @@
+.ExpBox {
+    grid-column: 3 / span 3;
+    grid-row: 3;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    > p {
+        font-size: 1.4rem;
+        color: white;
+    }
+}
+  
