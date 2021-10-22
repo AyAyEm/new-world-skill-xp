@@ -7,8 +7,8 @@ import type { ChangeEvent } from 'react';
 
 const Input = styled(MuiInput)`
   width: 65px;
-  margin: 0px 15px 0px;
   color: white;
+  margin: 0px 6% 0px;
 `;
 
 const [min, max] = [0, 200];
@@ -62,7 +62,7 @@ export function LevelSlider(props: LevelSliderProps) {
   }, [onChange]);
 
   return (
-    <Box sx={{ width: 400 }} className="LevelSlider">
+    <Box className="LevelSlider">
       <Input
         value={value[0].toString()}
         size="small"
@@ -73,6 +73,7 @@ export function LevelSlider(props: LevelSliderProps) {
       <Slider
         min={0}
         max={200}
+        className="Slider"
         getAriaLabel={() => 'Level range'}
         value={value}
         onChange={handleSliderChange}

@@ -10,6 +10,8 @@
       "#components/*": ["./components/*"],
       "#types": ["./types"],
       "#types/*": ["./types/*"],
+      "#lib": ["./lib"],
+      "#lib/*": ["./lib/*"],
     }
   }
 }
