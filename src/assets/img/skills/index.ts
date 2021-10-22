@@ -1,21 +1,11 @@
-import Weaponsmithing from './weaponsmithing.png';
-import Armoring from './armoring.png';
-import Engineering from './engineering.png';
-import Jewelcrafting from './jewelcrafting.png';
-import Arcana from './arcana.png';
-import Cooking from './cooking.png';
-import Furnishing from './furnishing.png';
+import type { Skill } from '#types';
 
-import type { Skill } from '../../../types/skills';
+import { CraftingImgs } from './crafting';
+import { RefiningImgs } from './refining';
+import { GatheringImgs } from './gathering';
 
-export const icons: Record<Skill, string> = {
-  Weaponsmithing,
-  Armoring,
-  Engineering,
-  Jewelcrafting,
-  Arcana,
-  Cooking,
-  Furnishing,
-}
-
-export default icons;
+export const SkillImgs: Record<Skill, string> = {
+  ...CraftingImgs,
+  ...RefiningImgs,
+  ...GatheringImgs,
+};
