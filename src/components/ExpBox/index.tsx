@@ -1,34 +1,41 @@
+import React from 'react';
+
 import Typography from '@mui/material/Typography';
-import { getXpDifference } from '../../lib';
 
-import { inRange } from '../../lib/utils';
+import { LevelSlider } from '#components/LevelSlider';
+import { getXpDifference, inRange } from '#lib';
 
-import type { Skill } from '../../types/skills';
+import './ExpBox.scss';
+
+import type { Skill } from '#types/skills';
 
 interface ExpBoxProps {
   className: string;
-  range: [number, number];
   skill: Skill;
 }
 
 export function ExpBox(props: ExpBoxProps) {
-  const { range, skill, className } = props;
+  const { skill, className } = props;
+  const [sliderRange, setSliderRange] = React.useState<[number, number]>([0, 200]);
 
   let xpDifference = 0;
   if (
     skill
-    && range
-    && range.length === 2
-    && inRange(range[0], 0, 200)
-    && inRange(range[1], 0, 200)
+    && sliderRange
+    && sliderRange.length === 2
+    && inRange(sliderRange[0], 0, 200)
+    && inRange(sliderRange[1], 0, 200)
   ) {
-    xpDifference = getXpDifference(range[0], range[1], skill);
+    xpDifference = getXpDifference(sliderRange[0], sliderRange[1], skill);
   }
 
   return (
-    <Typography className={className}>
-      {`${xpDifference.toLocaleString()}xp`}
-    </Typography>
+    <div className={className}>
+      <Typography>
+        {`${xpDifference.toLocaleString()}xp`}
+      </Typography>
+      <LevelSlider value={sliderRange} onChange={setSliderRange} />
+    </div>
   );
 }
 export default ExpBox;
