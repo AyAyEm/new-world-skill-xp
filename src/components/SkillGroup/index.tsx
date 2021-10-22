@@ -18,7 +18,7 @@ export function SkillGroup(props: SkillGroupProps) {
   return (
     <div className={`SkillGroup ${className}`}>
       <Typography variant="subtitle2">
-        {className}
+        {className?.split('Skills')[0]}
       </Typography>
       <hr />
       <ToggleButtonGroup
