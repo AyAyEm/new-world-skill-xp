@@ -1,6 +1,4 @@
-import { upperFirst } from 'lodash';
-
-import { skillsGroups } from '#lib';
+import { skillsGroups, upperFirst } from '#lib';
 import { SkillGroup } from '#components/SkillGroup';
 
 import './SkillSelect.scss';
@@ -19,6 +17,7 @@ export function SkillSelect(props: SkillSelectProps) {
     <div className="SkillSelect">
       {Object.entries(skillsGroups).map(([name, skills]) => (
         <SkillGroup
+          key={name}
           value={skill}
           onChange={(_e, s: Skill) => onChange(s)}
           skills={skills}
