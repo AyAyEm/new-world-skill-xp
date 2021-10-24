@@ -18,9 +18,9 @@ jobs:
     name: runner / eslint
     runs-on: ubuntu-latest
     steps:
-      - name: Run eslint with reviewdog
       - uses: actions/checkout@v2
-      - uses: reviewdog/action-eslint@v1.14.0
+      - name: Run eslint with reviewdog
+        uses: reviewdog/action-eslint@v1.14.0
         with:
           github_token: ${{ secrets.TOKEN }}
           reporter: github-pr-review
