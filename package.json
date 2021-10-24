@@ -20,8 +20,8 @@
     "start": "yarn run start-dev",
     "start-dev": "webpack serve --config=configs/webpack/dev.ts --port=5000",
     "start-prod": "cross-env PUBLIC_URL=\"/\" yarn run build && ts-node scripts/express.ts",
-    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --quiet && stylelint \"./src/**/*.scss\"",
-    "lint-fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix && stylelint \"./src/**/*.scss\" --fix"
+    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --quiet && stylelint \"./src/**/*.{scss,css,sass}\"",
+    "lint-fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix && stylelint \"./src/**/*.{scss,css,sass}\" --fix"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
