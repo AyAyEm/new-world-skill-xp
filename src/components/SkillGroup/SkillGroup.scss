@@ -1,77 +1,80 @@
-.SkillGroup {
-    display: flex;
-    flex-direction: column;
+.skill-group {
+  display: flex;
+  flex-direction: column;
+
+  > h6 {
+    align-self: flex-start;
+    color: white;
+    margin-top: 10px;
+  }
+
+  hr {
+    width: 100%;
+    border-top: 1px solid #36352f;
+    border-bottom: 1px solid black;
+    border-left: 0;
+    border-right: 0;
+    margin: 0;
+  }
+
+  &.crafting-skills {
+    grid-column: 1 / span 7;
+
+    > hr {
+      grid-column: 1 / span 7;
+    }
 
     > h6 {
-        align-self: flex-start;
-        color: white;
-        margin-top: 10px;
+      margin-top: 0;
     }
+  }
 
-    hr {
-        width: 100%;
-        border-top: 1px solid #36352f;
-        border-bottom: 1px solid black;
-        border-left: 0px;
-        border-right: 0px;
-        margin: 0px;
+  &.refining-skills {
+    grid-column: 1 / span 3;
+    grid-row: 2 / span 2;
+  }
+
+  &.gathering-skills {
+    grid-column: 5 / span 3;
+    grid-row: 2 / span 2;
+  }
+
+  &.refining-skills,
+  &.gathering-skills {
+    > hr {
+      grid-column: 1 / span 3;
     }
+  }
 
-    &.CraftingSkills {
-        grid-column: 1 / span 7;
+  > .crafting-skills,
+  > .gathering-skills,
+  > .refining-skills {
+    display: grid;
 
-        > hr {
-            grid-column: 1 / span 7;
-        }
-
-        > h6 {
-            margin-top: 0px;
-        }
+    button {
+      margin: 8%;
     }
+  }
 
-    &.RefiningSkills {
-        grid-column: 1 / span 3;
-        grid-row: 2 / span 2;
+  > .crafting-skills {
+    grid-column: 1 / span 7;
+    grid-template-columns: repeat(7, calc(100% / 7));
+    grid-template-rows: 1;
+  }
+
+  > .refining-skills {
+    grid-column: 2 / span 3;
+    grid-row: 2 / span 2;
+    grid-template-columns: repeat(3, calc(100% / 3));
+    grid-template-rows: repeat(2, 50%);
+  }
+
+  > .gathering-skills {
+    grid-template-columns: repeat(3, calc(100% / 3));
+    grid-template-rows: repeat(2, 50%);
+
+    > button:nth-last-child(2) {
+      grid-column-start: 2;
     }
-
-    &.GatheringSkills {
-        grid-column: 5 / span 3;
-        grid-row: 2 / span 2;
-    }
-
-    &.RefiningSkills, &.GatheringSkills {
-        > hr {
-            grid-column: 1 / span 3;
-        }
-    }
-
-    > .CraftingSkills, > .GatheringSkills, > .RefiningSkills {
-        display: grid;
-
-        button {
-            margin: 8%;
-        }
-    }
-
-    > .CraftingSkills {
-        grid-column: 1 / span 7;
-        grid-template-columns: repeat(7, calc(100% / 7));
-        grid-template-rows: 1;
-    }
-
-    > .RefiningSkills {
-        grid-column: 2 / span 3;
-        grid-row: 2 / span 2;
-        grid-template-columns: repeat(3, calc(100% / 3));
-        grid-template-rows: repeat(2, 50%);
-    }
-
-    > .GatheringSkills {
-        grid-template-columns: repeat(3, calc(100% / 3));
-        grid-template-rows: repeat(2, 50%);
-
-        > button:nth-last-child(2) {
-            grid-column-start: 2;
-        }
-    }
+  }
 }

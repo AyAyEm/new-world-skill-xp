@@ -18,7 +18,7 @@ export function SkillBox(props: SkillBoxProps) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <ToggleButton aria-label={value} {...props}>
-      <div className="SkillBox">
+      <div className="skill-box">
         <img src={SkillImgs[value]} alt={`${value} icon`} />
         <p>{value}</p>
       </div>

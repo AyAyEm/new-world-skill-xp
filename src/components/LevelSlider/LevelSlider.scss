@@ -1,17 +1,17 @@
-.LevelSlider {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    margin-bottom: 20px;
-    width: 100%;
+.level-slider {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
 
-input[type=number] {
-    -moz-appearance: textfield;
+input[type="number"] {
+  appearance: textfield;
 }

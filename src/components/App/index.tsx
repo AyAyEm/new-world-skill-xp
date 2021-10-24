@@ -10,11 +10,11 @@ export function App() {
   const [skill, setSkill] = React.useState<Skill>('Weaponsmithing');
 
   return (
-    <div className="App">
-      <header className="App-header" />
-      <main className="App-main">
+    <div className="app">
+      <header className="app-header" />
+      <main className="app-main">
         <SkillSelect onChange={setSkill} skill={skill} />
-        <ExpBox className="ExpBox" skill={skill} />
+        <ExpBox className="exp-box" skill={skill} />
       </main>
     </div>
   );
