@@ -1,5 +1,6 @@
 import React from 'react';
 import { ToggleButtonGroup, Typography } from '@mui/material';
+import { paramCase, pascalCase } from 'change-case';
 
 import type { ToggleButtonGroupProps } from '@mui/material';
 
@@ -10,15 +11,16 @@ import type { Skill } from '#types';
 
 export interface SkillGroupProps extends ToggleButtonGroupProps {
   skills: Skill[];
+  className: string;
 }
 
 export function SkillGroup(props: SkillGroupProps) {
   const { className, skills, value, onChange } = props;
 
   return (
-    <div className={`SkillGroup ${className}`}>
+    <div className={`skill-group ${className ? paramCase(className) : ''}`}>
       <Typography variant="subtitle2">
-        {className?.split('Skills')[0]}
+        {pascalCase(className.split('-')[0])}
       </Typography>
       <hr />
       <ToggleButtonGroup

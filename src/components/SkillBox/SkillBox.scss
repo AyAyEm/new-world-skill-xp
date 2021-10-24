@@ -1,20 +1,27 @@
-.SkillBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.skill-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.SkillBox p {
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: 0px;
+.skill-box p {
+  color: white;
+  font-family:
+    "Lucida Sans",
+    "Lucida Sans Regular",
+    "Lucida Grande",
+    "Lucida Sans Unicode",
+    Geneva,
+    Verdana,
+    sans-serif;
+  margin: 0;
 
-    @media screen and (max-width: 600px) {
-        display: none;
-    }
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
-.SkillBox img {
-    height: 60%;
-    width: 60%;
+.skill-box img {
+  height: 60%;
+  width: 60%;
 }
