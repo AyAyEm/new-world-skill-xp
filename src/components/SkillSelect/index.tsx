@@ -1,4 +1,6 @@
-import { skillsGroups, upperFirst } from '#lib';
+import { paramCase } from 'change-case';
+
+import { skillsGroups } from '#lib';
 import { SkillGroup } from '#components/SkillGroup';
 
 import './SkillSelect.scss';
@@ -14,14 +16,14 @@ export function SkillSelect(props: SkillSelectProps) {
   const { skill, onChange } = props;
 
   return (
-    <div className="SkillSelect">
+    <div className="skill-select">
       {Object.entries(skillsGroups).map(([name, skills]) => (
         <SkillGroup
           key={name}
           value={skill}
           onChange={(_e, s: Skill) => onChange(s)}
           skills={skills}
-          className={upperFirst(name)}
+          className={paramCase(name)}
         />
       ))}
     </div>

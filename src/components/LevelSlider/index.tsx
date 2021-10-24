@@ -62,7 +62,7 @@ export function LevelSlider(props: LevelSliderProps) {
   }, [onChange]);
 
   return (
-    <Box className="LevelSlider">
+    <Box className="level-slider">
       <Input
         value={value[0].toString()}
         size="small"
@@ -73,7 +73,7 @@ export function LevelSlider(props: LevelSliderProps) {
       <Slider
         min={0}
         max={200}
-        className="Slider"
+        className="slider"
         getAriaLabel={() => 'Level range'}
         value={value}
         onChange={handleSliderChange}

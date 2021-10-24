@@ -1,4 +1,4 @@
 export interface SkillRangeXp {
-  difference: number;
-  start: number;
+  startLevels: [number, number, number, number],
+  apDifferences: [number, number, number, number],
 }
