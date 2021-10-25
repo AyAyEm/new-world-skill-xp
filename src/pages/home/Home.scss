@@ -1,13 +1,11 @@
-.app {
+.home {
   text-align: center;
   min-height: 100vh;
   background: rgb(2 0 36);
   background-color: #131313;
 }
 
-.app-header {
-  // background-size: 20px 20px;
-  // padding: 10px;
+.home-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,9 +14,7 @@
   color: white;
 }
 
-.app-main {
-  display: grid;
-  grid-template-columns: repeat(7, calc(100% / 7));
-  grid-template-rows: repeat(3, calc(100% / 3));
+.home-main {
+  display: flex;
   padding: 20px;
 }
