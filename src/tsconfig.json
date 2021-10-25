@@ -12,6 +12,8 @@
       "#types/*": ["./types/*"],
       "#lib": ["./lib"],
       "#lib/*": ["./lib/*"],
+      "#pages": ["./pages"],
+      "#pages/*": ["./pages/*"]
     }
   }
 }
