@@ -7,7 +7,7 @@ import { Home } from '#pages/home';
 import './index.scss';
 
 if ('serviceWorker' in navigator) {
-  const wb = new Workbox('/service-worker.js');
+  const wb = new Workbox('service-worker.js');
 
   wb.register();
 }
