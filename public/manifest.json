@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Typescript React App template",
+  "short_name": "NW Skill calc",
+  "name": "New World Skill calculator",
   "icons": [
     {
       "src": "favicon.ico",
