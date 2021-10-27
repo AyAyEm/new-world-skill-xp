@@ -12,10 +12,11 @@ import type { Skill } from '#types/skills';
 interface ExpBoxProps {
   className: string;
   skill: Skill;
+  unit?: string;
 }
 
 export function ExpBox(props: ExpBoxProps) {
-  const { skill, className } = props;
+  const { skill, className, unit } = props;
   const [sliderRange, setSliderRange] = React.useState<[number, number]>([0, 200]);
 
   let xpDifference = 0;
@@ -32,7 +33,7 @@ export function ExpBox(props: ExpBoxProps) {
   return (
     <div className={className}>
       <Typography>
-        {`${xpDifference.toLocaleString()}xp`}
+          {`${xpDifference.toLocaleString()} ${unit}`}
       </Typography>
       <LevelSlider value={sliderRange} onChange={setSliderRange} />
     </div>
