@@ -1,6 +1,5 @@
 import React from 'react';
-
-import Typography from '@mui/material/Typography';
+import { Typography, Box, InputLabel } from '@mui/material';
 
 import { LevelSlider } from '#components/LevelSlider';
 import { getXpDifference, inRange } from '#lib';
@@ -12,10 +11,11 @@ import type { Skill } from '#types/skills';
 interface ExpBoxProps {
   className: string;
   skill: Skill;
+  unit?: string;
 }
 
 export function ExpBox(props: ExpBoxProps) {
-  const { skill, className } = props;
+  const { skill, className, unit } = props;
   const [sliderRange, setSliderRange] = React.useState<[number, number]>([0, 200]);
 
   let xpDifference = 0;
@@ -31,11 +31,20 @@ export function ExpBox(props: ExpBoxProps) {
 
   return (
     <div className={className}>
-      <Typography>
-        {`${xpDifference.toLocaleString()}xp`}
-      </Typography>
+      <Box>
+        <InputLabel htmlFor="min-input">Min </InputLabel>
+        <Typography>
+          {`${xpDifference.toLocaleString()} ${unit}`}
+        </Typography>
+        <InputLabel htmlFor="max-input">Max </InputLabel>
+      </Box>
       <LevelSlider value={sliderRange} onChange={setSliderRange} />
     </div>
   );
 }
+
+ExpBox.defaultProps = {
+  unit: 'xp',
+};
+
 export default ExpBox;

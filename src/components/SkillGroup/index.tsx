@@ -30,7 +30,6 @@ export function SkillGroup(props: SkillGroupProps) {
         color="info"
         size="small"
         exclusive
-        style={{ display: 'grid' }}
       >
         {React.Children.map(skills, (s) => (
           <SkillBox value={s} />

@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path, { resolve } from 'path';
 import { merge } from 'webpack-merge';
-
 import getPublicUrlOrPath from 'react-dev-utils/getPublicUrlOrPath';
-
 import CopyPlugin from 'copy-webpack-plugin';
+import WorkboxPlugin from 'workbox-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
+
 import commonConfig from './common';
 
 const appDirectory = fs.realpathSync(process.cwd());
@@ -25,10 +26,17 @@ export const prodConfig = merge(commonConfig, {
     ),
   },
   devtool: 'source-map',
-  plugins: [new CopyPlugin({
-    patterns: [
-      '../public',
-    ],
-  })],
+  plugins: [
+    new CompressionPlugin() as any,
+    new CopyPlugin({
+      patterns: [
+        '../public',
+      ],
+    }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
+  ],
 });
 export default prodConfig;
