@@ -1,135 +1,158 @@
 .trade-skills {
-  @media (min-width: 700px) {
+  flex-grow: 1;
+}
+
+.skill-group {
+  button {
+    margin: clamp(0px, 0.1vw, 10px);
+  }
+}
+
+.skill-box {
+  display: flex;
+  justify-content: center;
+  width: clamp(100px, 29vw, 120px);
+  height: clamp(100px, 29vw, 120px);
+
+  p {
+    font-size: 12px;
+  }
+
+  img {
+    width: 60%;
+  }
+
+  /* stylelint-disable-next-line */
+  .MuiSkeleton-root {
+    height: 60%;
+    width: 60%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .trade-skills {
     display: grid;
+    padding: 10px;
     grid-template-columns: repeat(7, calc(100% / 7));
     grid-template-rows: repeat(3, calc(100% / 3));
+  }
 
-    .skill-select {
+  .skill-select {
+    grid-column: 1 / span 7;
+    grid-row: 1 / span 3;
+    grid-template-columns: inherit;
+    grid-template-rows: inherit;
+  }
+
+  .skill-group {
+    &.crafting-skills {
       grid-column: 1 / span 7;
-      grid-row: 1 / span 3;
-      grid-template-columns: repeat(7, calc(100% / 7));
-      grid-template-rows: repeat(3, calc(100% / 3));
 
-      .skill-group {
-        &.crafting-skills {
-          grid-column: 1 / span 7;
+      > hr {
+        grid-column: 1 / span 7;
+      }
 
-          > hr {
-            grid-column: 1 / span 7;
-          }
-
-          > h6 {
-            margin-top: 0;
-          }
-        }
-
-        &.refining-skills {
-          grid-column: 1 / span 3;
-          grid-row: 2 / span 2;
-        }
-
-        &.gathering-skills {
-          grid-column: 5 / span 3;
-          grid-row: 2 / span 2;
-        }
-
-        &.refining-skills,
-        &.gathering-skills {
-          > hr {
-            grid-column: 1 / span 3;
-          }
-        }
-
-        > .crafting-skills,
-        > .gathering-skills,
-        > .refining-skills {
-          display: grid;
-
-          button {
-            margin: 8%;
-          }
-
-          p {
-            font-size: 1vw;
-          }
-        }
-
-        > .crafting-skills {
-          grid-column: 1 / span 7;
-          grid-template-columns: repeat(7, calc(100% / 7));
-          grid-template-rows: 1;
-        }
-
-        > .gathering-skills,
-        > .refining-skills {
-          grid-template-columns: repeat(3, calc(100% / 3));
-          grid-template-rows: repeat(2, 50%);
-        }
-
-        > .refining-skills {
-          grid-column: 2 / span 3;
-          grid-row: 2 / span 2;
-        }
-
-        > .gathering-skills {
-          grid-column: 4 / span 3;
-          grid-row: 2 / span 2;
-
-          > button:nth-last-child(2) {
-            grid-column-start: 2;
-          }
-        }
+      > h6 {
+        margin-top: 0;
       }
     }
 
-    .exp-box {
-      grid-column: 3 / span 3;
-      grid-row: 3;
+    &.refining-skills {
+      grid-column: 1 / span 3;
+      grid-row: 2 / span 2;
+    }
+
+    &.gathering-skills {
+      grid-column: 5 / span 3;
+      grid-row: 2 / span 2;
+    }
+
+    &.refining-skills,
+    &.gathering-skills {
+      > hr {
+        grid-column: 1 / span 3;
+      }
+    }
+
+    > .crafting-skills,
+    > .gathering-skills,
+    > .refining-skills {
+      display: grid;
+
+      button {
+        margin: 8%;
+      }
+    }
+
+    > .crafting-skills {
+      grid-column: 1 / span 7;
+      grid-template-columns: repeat(7, calc(100% / 7));
+      grid-template-rows: 1;
+    }
+
+    > .gathering-skills,
+    > .refining-skills {
+      grid-template-columns: repeat(3, calc(100% / 3));
+      grid-template-rows: repeat(2, 50%);
+    }
+
+    > .refining-skills {
+      grid-column: 2 / span 3;
+      grid-row: 2 / span 2;
+    }
+
+    > .gathering-skills {
+      grid-column: 4 / span 3;
+      grid-row: 2 / span 2;
+
+      > button:nth-last-child(2) {
+        grid-column-start: 2;
+      }
     }
   }
 
-  @media (max-width: 700px) {
+  .skill-box {
+    p {
+      font-size: 13px;
+    }
+  }
+
+  .exp-box {
+    grid-column: 3 / span 3;
+    grid-row: 3;
+  }
+}
+
+@media (max-width: 999px) {
+  .trade-skills {
     display: flex;
     flex-direction: column;
+  }
 
-    .skill-select {
+  .skill-select {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .skill-group {
+    h6 {
+      padding-left: 10px;
+    }
+
+    hr {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    > .crafting-skills,
+    > .gathering-skills,
+    > .refining-skills {
       display: flex;
-      flex-direction: column;
-
-      .skill-group {
-        > .crafting-skills,
-        > .gathering-skills,
-        > .refining-skills {
-          display: grid;
-          grid-template-columns: repeat(3, calc(100% / 3));
-          grid-template-rows: repeat(2, 50%);
-
-          button {
-            margin: 8%;
-          }
-        }
-
-        > .crafting-skills {
-          grid-template-rows: repeat(2, calc(100% / 3));
-          grid-column: 1 / span 3;
-          grid-row: 1 / span 3;
-        }
-
-        > .refining-skills {
-          grid-column: 1 / span 3;
-          grid-row: 1 / span 2;
-        }
-
-        > .gathering-skills {
-          grid-column: 1 / span 3;
-          grid-row: 1 / span 2;
-        }
-      }
+      flex-flow: row wrap;
     }
+  }
 
-    .exp-box {
-      grid-column: 1 / span 3;
-      grid-row: 8;
-    }
+  .exp-box {
+    margin-top: 20px;
   }
 }

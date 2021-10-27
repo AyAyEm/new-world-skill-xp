@@ -1,4 +1,6 @@
 .home {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   min-height: 100vh;
   background: rgb(2 0 36);
@@ -16,5 +18,5 @@
 
 .home-main {
   display: flex;
-  padding: 20px;
+  flex-grow: 1;
 }

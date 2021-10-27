@@ -1,19 +1,13 @@
 import { useCallback } from 'react';
-import { styled, Box, Slider, Input as MuiInput } from '@mui/material';
+import { Box, Slider, Input } from '@mui/material';
 
 import './LevelSlider.scss';
 
 import type { ChangeEvent } from 'react';
 
-const Input = styled(MuiInput)`
-  width: 65px;
-  color: white;
-  margin: 0px 6% 0px;
-`;
-
 const [min, max] = [0, 200];
 const inputProps = {
-  step: 10,
+  step: 1,
   min,
   max,
   type: 'number',
@@ -64,6 +58,7 @@ export function LevelSlider(props: LevelSliderProps) {
   return (
     <Box className="level-slider">
       <Input
+        id="min-input"
         value={value[0].toString()}
         size="small"
         onChange={(e) => handleInputChange('left', e)}
@@ -81,6 +76,7 @@ export function LevelSlider(props: LevelSliderProps) {
         getAriaValueText={(v) => v.toString()}
       />
       <Input
+        id="max-input"
         value={value[1].toString()}
         size="small"
         onChange={(e) => handleInputChange('right', e)}

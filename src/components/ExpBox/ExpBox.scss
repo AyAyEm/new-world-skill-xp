@@ -2,10 +2,24 @@
   margin: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: center;
 
-  > p {
-    font-size: 1.4rem;
-    color: white;
+  > div {
+    display: flex;
+
+    p {
+      flex-grow: 1;
+      font-size: 1.4rem;
+      color: white;
+      margin-left: 15px;
+    }
+
+    label {
+      color: white;
+
+      &:last-child {
+        margin-right: 10px;
+      }
+    }
   }
 }

@@ -18,3 +18,4 @@ export function Trade() {
     </Box>
   );
 }
+export default Trade;
