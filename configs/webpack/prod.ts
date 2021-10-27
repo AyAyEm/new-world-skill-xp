@@ -5,6 +5,8 @@ import { merge } from 'webpack-merge';
 import getPublicUrlOrPath from 'react-dev-utils/getPublicUrlOrPath';
 
 import CopyPlugin from 'copy-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
+
 import commonConfig from './common';
 
 const appDirectory = fs.realpathSync(process.cwd());
@@ -25,7 +27,9 @@ export const prodConfig = merge(commonConfig, {
     ),
   },
   devtool: 'source-map',
-  plugins: [new CopyPlugin({
+  plugins: [
+    new CompressionPlugin() as any,
+    new CopyPlugin({
     patterns: [
       '../public',
     ],
