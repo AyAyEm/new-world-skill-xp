@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Workbox } from 'workbox-window';
 
 import { Home } from '#pages/home';
 
 import './index.scss';
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js').catch((registrationError) => {
-      // eslint-disable-next-line no-console
-      console.error('SW registration failed: ', registrationError);
-    });
-  });
+  const wb = new Workbox('/service-worker.js');
+
+  wb.register();
 }
 
 ReactDOM.render(
