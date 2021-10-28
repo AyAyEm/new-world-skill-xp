@@ -2,6 +2,12 @@ import { ap, apSumOfNTerms } from './utils';
 
 import type { Skill, SkillRangeXp } from '../types';
 
+/**
+ * Every trading skill is composed of 4 different arithmetic progression sequences
+ * to reduce the ammount of data needed we just store the difference and the starting
+ * level which may vary from skill to skill.
+ * @see https://github.com/Kattoor/nw-datasheets-json
+ */
 export const skillRange: Record<Skill, SkillRangeXp> = {
   Weaponsmithing: {
     apDifferences: [5, 50, 186, 620],
