@@ -1,6 +1,6 @@
-import { ap, apSumOfNTerms } from './utils';
+import { apSumOfNTerms } from '#lib/utils';
 
-import type { Skill, SkillRangeXp } from '../types';
+import type { Skill, SkillRangeXp } from '#types';
 
 /**
  * Every trading skill is composed of 4 different arithmetic progression sequences
@@ -94,38 +94,15 @@ export const skillRange: Record<Skill, SkillRangeXp> = {
   },
 };
 
-export function getTotalXp(toCheckLvl: number, skill: Skill): number {
-  let lvl: number;
-  if (toCheckLvl < 0 || toCheckLvl > 200) {
-    if (toCheckLvl < 0) {
-      lvl = 0;
-    } else {
-      lvl = 200;
-    }
-  } else {
-    lvl = toCheckLvl;
-  }
-
+export function getTotalXp(lvl: number, skill: Skill): number {
   const skillRangeXp = skillRange[skill];
 
-  let lvlRange = Math.floor(lvl / 50);
-  lvlRange = lvlRange > 3 ? 3 : lvlRange;
+  return Array.from({ length: Math.floor((lvl - 1) / 50) + 1 }, (_, i) => {
+    const levelDifference = skillRangeXp.apDifferences[i];
+    const startLelvel = skillRangeXp.startLevels[i];
 
-  let previousExp = 0;
-  if (lvlRange > 0) {
-    const lastRange = lvlRange - 1;
-    previousExp = getTotalXp(50 * lvlRange - 1, skill);
-    previousExp += ap(
-      skillRangeXp.startLevels[lastRange],
-      49,
-      skillRangeXp.apDifferences[lastRange],
-    );
-  }
-
-  const levelDifference = skillRangeXp.apDifferences[lvlRange];
-  const startLelvel = skillRangeXp.startLevels[lvlRange];
-
-  return apSumOfNTerms(startLelvel, lvl - lvlRange * 50, levelDifference) + previousExp;
+    return apSumOfNTerms(startLelvel, lvl < (i + 1) * 50 ? lvl % 50 : 50, levelDifference);
+  }).reduce((acc, c) => acc + c, 0);
 }
 
 export function getXpDifference(a: number, b: number, skill: Skill): number {
