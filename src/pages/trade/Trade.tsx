@@ -14,7 +14,7 @@ export function Trade() {
   return (
     <Box className="trade-skills">
       <SkillSelect onChange={setSkill} skill={skill} skillsGroups={skillsGroups} />
-      <ExpBox className="exp-box" skill={skill} />
+      <LevelBox className="exp-box" skill={skill} />
     </Box>
   );
 }
