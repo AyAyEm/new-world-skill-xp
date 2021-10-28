@@ -1,28 +1,21 @@
-import { useCallback } from 'react';
+import React from 'react';
 import { Box, Slider, Input } from '@mui/material';
 
 import './LevelSlider.scss';
 
 import type { ChangeEvent } from 'react';
 
-const [min, max] = [0, 200];
-const inputProps = {
-  step: 1,
-  min,
-  max,
-  type: 'number',
-  'aria-labelledby': 'input-slider',
-};
-
 type InputSide = 'left' | 'right';
 
 export interface LevelSliderProps {
-  value: [number, number];
-  onChange: (newValue: LevelSliderProps['value']) => void;
+  values: [number, number];
+  min: number;
+  max: number;
+  onChange: (newValues: LevelSliderProps['values']) => void;
 }
 
 export function LevelSlider(props: LevelSliderProps) {
-  const { value, onChange } = props;
+  const { values, min, max, onChange } = props;
 
   const handleSliderChange = (_event: Event, newValue: number | number[]) => {
     props.onChange(newValue as [number, number]);
@@ -36,51 +29,55 @@ export function LevelSlider(props: LevelSliderProps) {
 
     if (!Number.isNaN(newValue)) {
       if (side === 'left') {
-        props.onChange([newValue, value[1]]);
+        props.onChange([newValue, values[1]]);
       } else {
-        props.onChange([value[0], newValue]);
+        props.onChange([values[0], newValue]);
       }
     }
   }
 
-  const handleBlur = useCallback((v: [number, number]) => {
+  const handleBlur = React.useMemo(() => (v: [number, number]) => {
     if (v[0] < min || v[1] < min) {
       onChange([v[0] < min ? min : v[0], v[1] < min ? min : v[1]]);
     } else if (v[0] > max || v[1] > max) {
       onChange([v[0] > max ? max : v[0], v[1] > max ? max : v[1]]);
     }
-
-    if (v[0] > v[1]) {
-      onChange([v[1], v[0]]);
-    }
   }, [onChange]);
+
+  const inputProps = {
+    step: 1,
+    min,
+    max,
+    type: 'number',
+    'aria-labelledby': 'input-slider',
+  };
 
   return (
     <Box className="level-slider">
       <Input
         id="min-input"
-        value={value[0].toString()}
+        value={values[0].toString()}
         size="small"
         onChange={(e) => handleInputChange('left', e)}
-        onBlur={() => handleBlur(value)}
+        onBlur={() => handleBlur(values)}
         inputProps={inputProps}
       />
       <Slider
-        min={0}
-        max={200}
+        min={min}
+        max={max}
         className="slider"
         getAriaLabel={() => 'Level range'}
-        value={value}
+        value={values}
         onChange={handleSliderChange}
         valueLabelDisplay="auto"
         getAriaValueText={(v) => v.toString()}
       />
       <Input
         id="max-input"
-        value={value[1].toString()}
+        value={values[1].toString()}
         size="small"
         onChange={(e) => handleInputChange('right', e)}
-        onBlur={() => handleBlur(value)}
+        onBlur={() => handleBlur(values)}
         inputProps={inputProps}
       />
     </Box>

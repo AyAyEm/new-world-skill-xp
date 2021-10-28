@@ -1,50 +1,34 @@
 import React from 'react';
-import { Typography, Box, InputLabel } from '@mui/material';
+import { Box, InputLabel } from '@mui/material';
 
 import { LevelSlider } from '#components/LevelSlider';
-import { getXpDifference, inRange } from '#lib';
 
-import './ExpBox.scss';
+import './LevelBox.scss';
 
-import type { Skill } from '#types/skills';
+import type { LevelSliderProps } from '#components/LevelSlider';
 
-interface ExpBoxProps {
-  className: string;
-  skill: Skill;
-  unit?: string;
+interface ExpBoxProps extends LevelSliderProps{
+  children: React.ReactNode;
 }
 
-export function ExpBox(props: ExpBoxProps) {
-  const { skill, className, unit } = props;
-  const [sliderRange, setSliderRange] = React.useState<[number, number]>([0, 200]);
-
-  let xpDifference = 0;
-  if (
-    skill
-    && sliderRange
-    && sliderRange.length === 2
-    && inRange(sliderRange[0], 0, 200)
-    && inRange(sliderRange[1], 0, 200)
-  ) {
-    xpDifference = getXpDifference(sliderRange[0], sliderRange[1], skill);
-  }
+export function LevelBox(props: ExpBoxProps) {
+  const {
+    values,
+    min,
+    max,
+    children,
+    onChange,
+  } = props;
 
   return (
-    <div className={className}>
+    <Box className="level-box">
       <Box>
         <InputLabel htmlFor="min-input">Min </InputLabel>
-        <Typography>
-          {`${xpDifference.toLocaleString()} ${unit}`}
-        </Typography>
+        {children}
         <InputLabel htmlFor="max-input">Max </InputLabel>
       </Box>
-      <LevelSlider value={sliderRange} onChange={setSliderRange} />
-    </div>
+      <LevelSlider values={values} min={min} max={max} onChange={onChange} />
+    </Box>
   );
 }
-
-ExpBox.defaultProps = {
-  unit: 'xp',
-};
-
-export default ExpBox;
+export default LevelBox;
